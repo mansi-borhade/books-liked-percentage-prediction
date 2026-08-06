@@ -216,16 +216,6 @@ Run all cells sequentially.
 * Deep hybrid ensemble architectures.
 * Larger book recommendation datasets.
 
-## 📄 Research Paper
-
-This repository contains the implementation associated with the following published research paper:
-
-**Predicting Liked Percentage of Book using Artificial Neural Network and Voting Regressor**; **Authors:** Suhasini Vijaykumar, Manish Kumar Dubey, Shambhu Shankar Rai, Jyoti Kharade, Mansi Borhade; **Published in:** The Indian Journal of Technical Education; **Publication Date:** October 2024
-
-## 👩‍💻 Repository Maintainer
-
-**Mansi Borhade** This repository contains the implementation of the published research work listed above. The research paper was developed collaboratively with the co-authors listed in the publication.
-
 ## License
 
 This project is intended for academic and research purposes.
