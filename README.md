@@ -1,100 +1,231 @@
-**PREDICTING ACCURACY OF LIKED PERCENTAGE OF BOOKS**
+# Predicting Liked Percentage of Books Using ANN and Voting Regressor Technique 
 
-A.PROJECT OVERVIEW
+Machine Learning and Deep Learning Framework for Predicting the Liked Percentage of Books.
 
-This project focuses on predicting the liked percentage of books using machine learning and deep learning techniques. 
-Instead of only recommending books based on ratings or popularity, this system estimates how much a book is likely to be liked by readers, expressed as a liked percentage.
-The project is built using:
-1.Artificial Neural Network (ANN) for deep learning based regression.
-2.Ensemble Learning (Voting Regressor) combining random forest and gradient boosting.
-The dataset used is the Goodreads Best Books Ever Dataset, and the work is inspired by and aligned with a PUBLISHED RESEARCH STUDY.
+## Overview
 
-B.PROBLEM STATEMENT
+This repository contains the implementation of a machine learning and deep learning framework for predicting the liked percentage of books using metadata from the Goodreads Best Books Ever Dataset.
 
-Traditional book recommendation systems rely heavily on ratings, which may not fully capture reader sentiment. This project aims to answer:
-1.Can we predict the liked percentage of a book using its metadata such as genre, author, and rating?
-By accurately predicting liked percentage, recommendation systems can offer more personalized and sentiment-aware suggestions.
+The proposed framework combines an Artificial Neural Network (ANN) for learning complex nonlinear relationships and an Ensemble Voting Regressor consisting of Random Forest Regressor and Gradient Boosting Regressor to improve prediction accuracy and model stability.
 
-C.SOLUTION APPROACH
+The objective of this work is to estimate the percentage of readers who are likely to enjoy a particular book based on its metadata, enabling more personalized and sentiment-aware recommendation systems.
 
-The solution follows a two-stage modeling strategy:
-1.Artificial Neural Network (ANN): Learns complex, non-linear relationships between book features and liked percentage.
-2.Voting Regressor (Ensemble Model): Combines predictions from Random Forest Regressor & Gradient Boosting Regressor by improving accuracy and reduces bias and overfitting.
+## Model Architecture
 
-D.DATASET DESCRIPTION
+The proposed framework consists of:
 
-Source: Goodreads Best Books Ever Dataset
-Total Records: ~52,000 books
-Features Used:
-  ---------------------------------------------------------------------------
-| Feature          | Description                                              |
+* Artificial Neural Network (ANN) for nonlinear regression.
+* Voting Regressor combining Random Forest Regressor and Gradient Boosting Regressor.
+* Feature preprocessing and engineering pipeline.
+* Performance evaluation using regression metrics.
+
+## Technologies Used
+
+* Python
+* TensorFlow
+* Keras
+* Scikit-learn
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+
+## 📊 Dataset
+
+The experiments are performed using the Goodreads Best Books Ever Dataset.
+
+The dataset contains book metadata collected from Goodreads with the following primary fields:
+
+| Column           | Description                                              |
 | ---------------- | -------------------------------------------------------- |
-| Genre            | Category of the book                                     |
-| Author           | Author of the book                                       |
+| Genre            | Book category                                            |
+| Author           | Author name                                              |
 | Rating           | Average Goodreads rating                                 |
-| Liked Percentage | Target variable (percentage of users who liked the book) |
- ----------------------------------------------------------------------------
-Other columns such as price, pages, language, publisher, etc. are explored but not directly used in final modeling.
+| Liked Percentage | Percentage of users who liked the book (Target Variable) |
 
-E.TECHNOLOGIES AND TOOLS
+Additional attributes including pages, language, publisher, and price were explored during analysis but were not included in the final predictive model.
 
-Programming Language: Python
-Libraries: Data Processing: pandas, numpy | Visualization: matplotlib, seaborn | Machine Learning: scikit-learn | Deep Learning: tensorFlow, keras.
+## Data Processing
 
-F.PROJECT WORKFLOW
+The following preprocessing steps are applied:
 
-1.Data Collection: Dataset loaded from Goodreads open-source data.
-2.Data Preprocessing: Removed irrelevant columns, renamed columns for clarity, handled missing values, checked and treated outliers, encoded categorical variables (genre, author) using 
-label encoding, standardized numerical features using standardscaler.
-3.Exploratory Data Analysis (EDA): Correlation analysis, heatmaps, histograms (ratings, liked percentage, price), genre and language distributions.
-[[Key Insight: Rating and liked percentage show strong positive correlation]]
-4.Feature Selection: Input Features (X): Encoded genre, encoded author, rating | Target Variable (y): Liked percentage.
+* Removal of irrelevant columns.
+* Missing value handling.
+* Outlier analysis and treatment.
+* Feature renaming and cleaning.
+* Label encoding of categorical variables.
+* Feature standardization using StandardScaler.
+* Train-test dataset splitting.
 
-**Model Development**
-[Artificial Neural Network (ANN)]
-*Architecture:
-Input Layer: 3 neurons
-Hidden Layer 1: 64 neurons (ReLU)
-Hidden Layer 2: 32 neurons (ReLU)
-Hidden Layer 3: 16 neurons (ReLU)
-Output Layer: 1 neuron (Linear)
+## Exploratory Data Analysis
 
-*Compilation Details
-Optimizer: Adam
-Loss: Mean Squared Error (MSE)
-Epochs: 80
-Batch Size: 32
+The exploratory analysis includes:
 
-*Performance
-MAE: ~1.61
-MSE: ~4.02
-R² Score: ~0.73 (73%)
+* Correlation analysis.
+* Heatmaps.
+* Distribution plots.
+* Genre analysis.
+* Language distribution.
+* Rating distribution.
+* Liked percentage distribution.
 
-[Voting Regressor (Ensemble Model)]
+The analysis demonstrates a strong positive relationship between Goodreads ratings and liked percentage.
 
-*Base Models
-Random Forest Regressor
-Gradient Boosting Regressor
+## Model Development
 
-*Ensemble Strategy
-Soft Voting (Average of predictions)
+### Artificial Neural Network (ANN)
 
-*Performance
-MAE: ~1.42
-MSE: ~3.41
-R² Score: ~0.76 (76%)
+The ANN architecture consists of:
 
-**ENSEMBLE MODEL OUTPERFORMS ANN MODEL**
+* Input Layer (3 neurons)
+* Hidden Layer 1 (64 neurons, ReLU)
+* Hidden Layer 2 (32 neurons, ReLU)
+* Hidden Layer 3 (16 neurons, ReLU)
+* Output Layer (1 neuron, Linear Activation)
 
-**Results & Findings**
-Books with higher ratings tend to have higher liked percentages.
-Fiction and Fantasy genres dominate user preference.
-Voting Regressor improves prediction stability and accuracy.
-Ensemble learning effectively balances bias and variance.
+Training configuration:
 
-*RESEARCH REFERENCE*
+* Optimizer: Adam
+* Loss Function: Mean Squared Error (MSE)
+* Epochs: 80
+* Batch Size: 32
 
-*This project is based on the research paper:*
-*"Predicting Liked Percentage of Book using Artificial Neural Network and Voting Regressor"*
-*Published in The Indian Journal of Technical Education, October 2024*
-If you find this project useful, please ⭐ the repository....
+### Voting Regressor
+
+The ensemble model combines:
+
+* Random Forest Regressor
+* Gradient Boosting Regressor
+
+The final prediction is obtained by averaging the predictions of both models to improve prediction accuracy and reduce model variance.
+
+## Training Details
+
+The models were developed using:
+
+* Python environment
+* TensorFlow and Keras
+* Scikit-learn
+* Jupyter Notebook / Google Colab
+
+## Evaluation
+
+The models are evaluated using:
+
+* Mean Absolute Error (MAE)
+* Mean Squared Error (MSE)
+* R² Score
+
+## Results
+
+### Artificial Neural Network
+
+* MAE: ~1.61
+* MSE: ~4.02
+* R² Score: ~0.73
+
+### Voting Regressor
+
+* MAE: ~1.42
+* MSE: ~3.41
+* R² Score: ~0.76
+
+The Voting Regressor outperforms the Artificial Neural Network by producing lower prediction error and improved overall regression performance.
+
+## Repository Structure
+
+The repository contains the following files:
+
+README.md: Project documentation and implementation details.
+
+requirements.txt: Python dependencies required to run the project.
+
+book_liked_percentage_prediction.ipynb: Complete Jupyter Notebook containing data preprocessing, exploratory data analysis, feature engineering, ANN implementation, Voting Regressor implementation, model training, prediction, evaluation, and visualization.
+
+## Project Overview
+
+This project implements an Artificial Neural Network (ANN) and an Ensemble Voting Regressor framework for predicting the liked percentage of books. The framework combines deep learning and ensemble machine learning techniques to accurately estimate reader preference using book metadata.
+
+The implementation includes dataset preprocessing, exploratory data analysis, feature engineering, ANN model development, Voting Regressor training, regression evaluation, and comparative performance analysis.
+
+## Dataset Description
+
+The experiments are performed using the Goodreads Best Books Ever Dataset.
+
+The dataset contains:
+
+* Book metadata.
+* Genre information.
+* Author information.
+* Goodreads rating.
+* Liked percentage.
+
+The preprocessing pipeline includes:
+
+* Cleaning missing values.
+* Removing unnecessary columns.
+* Label encoding categorical variables.
+* Standardizing numerical features.
+* Preparing datasets for machine learning and deep learning models.
+
+## Training Details
+
+The models were trained using:
+
+* TensorFlow/Keras for ANN.
+* Scikit-learn for Voting Regressor.
+* Adam Optimizer.
+* Mean Squared Error Loss.
+* Standardized numerical features.
+
+## Evaluation
+
+Performance is evaluated using:
+
+* Mean Absolute Error (MAE)
+* Mean Squared Error (MSE)
+* R² Score
+* Prediction comparison between ANN and Voting Regressor.
+
+## Results
+
+The repository includes:
+
+* Regression performance comparison.
+* Prediction accuracy analysis.
+* Correlation analysis.
+* Exploratory data visualizations.
+* Comparative evaluation between ANN and Voting Regressor.
+
+## How to Run
+
+Clone the repository.
+
+Install the required dependencies.
+
+Open the Jupyter Notebook or Google Colab.
+
+Run all cells sequentially.
+
+## Future Work
+
+* Transformer-based recommendation models.
+* Explainable recommendation systems.
+* Hybrid recommender systems.
+* Integration of user reviews using Natural Language Processing.
+* Deep hybrid ensemble architectures.
+* Larger book recommendation datasets.
+
+## 📄 Research Paper
+
+This repository contains the implementation associated with the following published research paper:
+
+**Predicting Liked Percentage of Book using Artificial Neural Network and Voting Regressor**; **Authors:** Suhasini Vijaykumar, Manish Kumar Dubey, Shambhu Shankar Rai, Jyoti Kharade, Mansi Borhade; **Published in:** The Indian Journal of Technical Education; **Publication Date:** October 2024
+
+## 👩‍💻 Repository Maintainer
+
+**Mansi Borhade** This repository contains the implementation of the published research work listed above. The research paper was developed collaboratively with the co-authors listed in the publication.
+
+## License
+
+This project is intended for academic and research purposes.
