@@ -3,6 +3,9 @@
 
 A machine learning application that predicts the percentage of users who are likely to like a book based on book-level features.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://book-percentage-predictor03.streamlit.app/)
+**Live Demo:** https://book-percentage-predictor03.streamlit.app/
+
 ## Project Overview
 
 The objective of this project is to predict the liked percentage of a book using structured book metadata.
